@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  var game = new Game;
+  updateSize();
+  isGameFinished();
 
   // $('div').mouseenter(function(){
   //   // $(this).animate({
@@ -14,19 +17,34 @@ $(document).ready(function(){
   // })
 
 
-  var intDuration = 1000;
-  setInterval(
-    function(){
-      $('div').animate({"height": "+=150px"}) 
-    },
-    intDuration
-  )
+  // var intDuration = 1000;
+  // setInterval(
+  //   function(){
+  //     $('div').animate({"height": "+=150px"})
+  //   },
+  //   intDuration
+  // )
 
   $('div').click(function(){
     $(this).animate({
-      height: '-=50px'
+      height: "+=#{game.increaseSize()}px"
     })
+    isGameFinished();
   })
 
+  function updateSize() {
+    $('#pink').height(game.getSize())
+  }
+
+  function finishGame() {
+    $('#pink').css('background-color', 'red');
+  }
+
+  function isGameFinished() {
+    console.log("WORKING");
+    if (game.isGameOver()) {
+      finishGame();
+    }
+  }
 
 });
