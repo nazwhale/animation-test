@@ -1,0 +1,8 @@
+div {
+  height: 100px;
+  width: 1000px;
+  display: inline-block;
+}
+#pink {
+  background-color: #FFC0CB;
+}
